@@ -38,7 +38,7 @@ Tatsiana KHAMIAKOVA \email{tatsiana.khamiakova@uhasselt.be}
 
 
 \seealso{
-\code{\link{ChiaKaruturi}}, \code{\link{diagnoseColRow}}
+\code{\link{diagnosticTest}}, \code{\link{diagnosticPlot2}}, \code{\link{ChiaKaruturi}}, \code{\link{diagnoseColRow}}
 }
 
 \examples{

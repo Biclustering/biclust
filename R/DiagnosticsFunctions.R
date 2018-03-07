@@ -94,7 +94,14 @@ computeObservedFstat<- function(x, bicResult, number){
 			A <- A + xmat2[i,j]*(y.bar.i[i]-y.bar)*(y.bar.j[j]-y.bar)
 		}
 	}
-	F.interaction <- (A^2)/(B*C)
+	F.interaction <- (A^2)/(B*C) # SSAB
+	
+	# divide the above by the MSE ; SSE=SST-SSA-SSB-SSAB
+	a <- nrow(xmat2)
+	b <- ncol(xmat2)
+	MSE <- (sum((xmat2 - y.bar)^2) - b*B - a*C - F.interaction)/(a*b-a-b)
+	F.interaction <- F.interaction/MSE
+	
 	pval.Tukey.obs <- 1 - pf(q=F.interaction, df1=1, df2=(length(coreBiclusterGenes)*length(coreBiclusterSamples) -(length(coreBiclusterGenes)+length(coreBiclusterSamples))))
 	retval <- data.frame(Fstat = c(fval.row.obs, fval.col.obs, F.interaction), 
 			PValue = c(pval.row.obs, pval.col.obs, pval.Tukey.obs))

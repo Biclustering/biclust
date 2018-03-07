@@ -18,6 +18,13 @@ importFrom("stats", "anova", "aov", "as.dist", "as.formula",
              "sd", "terms")
 importFrom("utils", "flush.console")
 
+import(ggplot2)
+importFrom(additivityTests,mandel.test)
+importFrom(additivityTests,tukey.test)
+importFrom(tidyr,gather)
+
+importFrom("stats","qf","rnorm")
+
 export(	drawHeatmap,
 	drawHeatmap2,
 	bubbleplot,
@@ -65,6 +72,9 @@ export(	drawHeatmap,
        biclustbarchart,
        heatmapBC
 	)
+
+export(diagnosticPlot2)
+export(diagnosticTest)
 
 exportClasses(
 		BiclustMethod,

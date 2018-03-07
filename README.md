@@ -12,7 +12,7 @@ Installation
 install.packages("biclust")
 ```
 
-#### Development (1.2.1)
+#### Development (2.0.0)
 
 ``` r
 install.packages("devtools") # If not yet installed on your R Version

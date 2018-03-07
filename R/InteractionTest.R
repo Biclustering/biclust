@@ -10,6 +10,7 @@
 # @import ggplot2
 # @importFrom tidyr gather
 
+
 #' @title Diagnostics F Statistiics Visualization
 #' @description Plots distributions of bootstrap replicates of F-statistics for row, column and multiplicative effects obtained from \code{\link{diagnosticTest}} (when \code{save_F=TRUE}). 
 #' Contains an option to highlight the observed statistics.
@@ -21,18 +22,26 @@
 #' @author Ewoud De Troyer
 #' @examples 
 #' 
-#' #Random matrix with embedded bicluster
+#' #Random matrix with embedded bicluster (with multiplicative effect)
 #' test <- matrix(rnorm(5000),100,50)
-#' test[11:20,11:20] <- rnorm(100,3,0.3)
+#' roweff <- sample(1:5,10,replace=TRUE)
+#' coleff <- sample(1:5,10,replace=TRUE)
+#' test[11:20,11:20] <- test[11:20,11:20] +
+#'   matrix(coleff,nrow=10,ncol=10,byrow=TRUE) +
+#'   matrix(roweff,nrow=10,ncol=10) +
+#'   roweff %*% t(coleff)
+#' 
 #' 
 #' #Apply Plaid Biclustering
 #' res <- biclust(test, method=BCPlaid())
 #' 
 #' #Apply default diagnosticTest
-#' out <- diagnosticTest(BCresult=res, data=test, save_F=TRUE)
+#' out <- diagnosticTest(BCresult=res, data=test, save_F=TRUE, number=1,
+#'                       statistics=c("F","Tukey","ModTukey","Tusell","Mandel","LBI","JandG"),
+#'                       samplingtypes=c("Permutation","SemiparPerm","SemiparBoot","PermutationCor","SamplingCor","NormSim"))
 #' 
 #' #Plot Distributions
-#' diagnosticPlot2(out,binwidth=1)
+#' diagnosticPlot2(out,number=1)
 #' 
 #' @return Returns a \code{ggplot} object.
 diagnosticPlot2 <- function(diagnosticTest,number=1,StatVal=TRUE,binwidth=NULL){
@@ -148,15 +157,25 @@ diagnosticPlot2 <- function(diagnosticTest,number=1,StatVal=TRUE,binwidth=NULL){
 #' @author Ewoud De Troyer
 #' @examples 
 #' 
-#' #Random matrix with embedded bicluster
+#' #Random matrix with embedded bicluster (with multiplicative effect)
 #' test <- matrix(rnorm(5000),100,50)
-#' test[11:20,11:20] <- rnorm(100,3,0.3)
+#' roweff <- sample(1:5,10,replace=TRUE)
+#' coleff <- sample(1:5,10,replace=TRUE)
+#' test[11:20,11:20] <- test[11:20,11:20] +
+#'   matrix(coleff,nrow=10,ncol=10,byrow=TRUE) +
+#'   matrix(roweff,nrow=10,ncol=10) +
+#'   roweff %*% t(coleff)
+#' 
 #' 
 #' #Apply Plaid Biclustering
 #' res <- biclust(test, method=BCPlaid())
 #' 
 #' #Apply default diagnosticTest
-#' out <- diagnosticTest(BCresult=res, data=test, save_F=TRUE)
+#' out <- diagnosticTest(BCresult=res, data=test, save_F=TRUE, number=1,
+#'                       statistics=c("F","Tukey","ModTukey","Tusell","Mandel","LBI","JandG"),
+#'                       samplingtypes=c("Permutation","SemiparPerm","SemiparBoot","PermutationCor","SamplingCor","NormSim"))
+#' 
+#' out[[1]]$table
 #' 
 #' @return Returns a list with \code{length(number)} elements. 
 #' Each element corresponds with the requested biclusters and is a list containing:
@@ -903,5 +922,5 @@ SemiPar <- function(nSim=1000,type=c("Perm","Boot"),StatVal,mu,res_mat,alpha_mat
 
 
 if(getRversion() >= "2.15.1"){
-  globalVariables(c("type","Fval","..density"))
+  globalVariables(c("type","Fval","..density.."))
 }

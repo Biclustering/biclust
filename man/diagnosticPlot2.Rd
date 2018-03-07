@@ -25,18 +25,26 @@ Contains an option to highlight the observed statistics.
 }
 \examples{
 
-#Random matrix with embedded bicluster
+#Random matrix with embedded bicluster (with multiplicative effect)
 test <- matrix(rnorm(5000),100,50)
-test[11:20,11:20] <- rnorm(100,3,0.3)
+roweff <- sample(1:5,10,replace=TRUE)
+coleff <- sample(1:5,10,replace=TRUE)
+test[11:20,11:20] <- test[11:20,11:20] +
+  matrix(coleff,nrow=10,ncol=10,byrow=TRUE) +
+  matrix(roweff,nrow=10,ncol=10) +
+  roweff \%*\% t(coleff)
+
 
 #Apply Plaid Biclustering
 res <- biclust(test, method=BCPlaid())
 
 #Apply default diagnosticTest
-out <- diagnosticTest(BCresult=res, data=test, save_F=TRUE)
+out <- diagnosticTest(BCresult=res, data=test, save_F=TRUE, number=1,
+                      statistics=c("F","Tukey","ModTukey","Tusell","Mandel","LBI","JandG"),
+                      samplingtypes=c("Permutation","SemiparPerm","SemiparBoot","PermutationCor","SamplingCor","NormSim"))
 
 #Plot Distributions
-diagnosticPlot2(out,binwidth=1)
+diagnosticPlot2(out,number=1)
 
 }
 \author{

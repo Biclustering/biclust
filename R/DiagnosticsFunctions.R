@@ -19,9 +19,13 @@ diagnoseColRow <- function(x, bicResult, number, nResamplings, replace = TRUE){
 	fval.row <- fval.col <- rep(NA, nResamplings)
 	N <- ncol(x)
 	
-	outCols <- c(1:N)[-coreBiclusterSamples] # columns outside bicluster
-	xmat <- x[coreBiclusterGenes, ]
-	xA <- as.vector((xmat[, coreBiclusterSamples]))
+	## Out of column not necessary anymore
+	
+	# outCols <- c(1:N)[-coreBiclusterSamples] # columns outside bicluster
+	# xmat <- x[coreBiclusterGenes, ]
+	# xA <- as.vector((xmat[, coreBiclusterSamples])) # Observed Biclusters
+	
+	xA <- as.vector(x[coreBiclusterGenes,coreBiclusterSamples]) # Observed BC
 	
 	roweff <- rep(c(1:length(coreBiclusterGenes)), length(coreBiclusterSamples))
 	coleff <- sort(rep(c(1:length(coreBiclusterSamples)), length(coreBiclusterGenes) ))
@@ -32,10 +36,14 @@ diagnoseColRow <- function(x, bicResult, number, nResamplings, replace = TRUE){
 	fval.col.obs <- xx1[2, "F value"]
 	
 	for (b in 1:B){
+	  
+	  # Old sampling method
+		# index <- sample(outCols, size = length(coreBiclusterSamples), replace=replace) # sampling without replacement from original data
+		# xB <- as.vector((xmat[, index])) # converting data from matrix to the vector form
 		
-		index <- sample(outCols, size = length(coreBiclusterSamples), replace=replace) #sampling without replacement from original data
-		xB <- as.vector((xmat[, index])) # converting data from matrix to the vector form
-		
+	  ## Making random selection out of full data
+	  xB <- sample(as.vector(x),(length(coreBiclusterSamples)*length(coreBiclusterGenes)),replace=replace)
+	  
 		xx2 <- anova(aov(xB ~ as.factor(roweff) + as.factor(coleff)))
 		fval.row[b] <- xx2[1,4]
 		fval.col[b] <- xx2[2,4]

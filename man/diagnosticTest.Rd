@@ -67,8 +67,8 @@ Due to the uncertainty of discovering the true bicluster(s) in the data, it's of
 Available p-values/sampling types for each statistical method:
 \itemize{
 \item \code{"F"}: \code{"Theoretical"} and \code{"Permutation"} for both row and column effect.
-\item \code{"Tukey"}: \code{"Theoretical"}, \code{"SemiparPerm"} and \code{"SemiparBoot}.
-\item \code{"ModTukey}: \code{"Theoretical"}, \code{"SemiparPerm"}, \code{"SemiparBoot"}, \code{"PermutationCor"} and \code{"SamplingCor"}.
+\item \code{"Tukey"}: \code{"Theoretical"}, \code{"SemiparPerm"} and \code{"SemiparBoot"}.
+\item \code{"ModTukey"}: \code{"Theoretical"}, \code{"SemiparPerm"}, \code{"SemiparBoot"}, \code{"PermutationCor"} and \code{"SamplingCor"}.
 \item \code{"Tusell"}: \code{"SemiparPerm"}, \code{"SemiparBoot"} and \code{"NormSim"}.
 \item \code{"Mandel"}: \code{"Theoretical"}, \code{"SemiparPerm"} and \code{"SemiparBoot"}.
 \item \code{"LBI"}: \code{"SemiparPerm"}, \code{"SemiparBoot"} and \code{"NormSim"}.

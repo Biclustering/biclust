@@ -597,18 +597,18 @@ RowColPermuteBC <- function(data,nSim,obs_row,obs_col,roweff,coleff,a,b,
   
   if(save_F){
     return(list(
-      pval_row = sum(fval_row>obs_row)/(nSim+1),
+      pval_row = (sum(fval_row>obs_row)+1)/(nSim+1),
       crit_row = quantile(fval_row,probs=1-alpha),
-      pval_col = sum(fval_col>obs_col)/(nSim+1),
+      pval_col = (sum(fval_col>obs_col)+1)/(nSim+1),
       crit_col = quantile(fval_col,probs=1-alpha),
       F_row = fval_row,
       F_col = fval_col
     ))
   }else{
     return(list(
-      pval_row = sum(fval_row>obs_row)/(nSim+1),
+      pval_row = (sum(fval_row>obs_row)+1)/(nSim+1),
       crit_row = quantile(fval_row,probs=1-alpha),
-      pval_col = sum(fval_col>obs_col)/(nSim+1),
+      pval_col = (sum(fval_col>obs_col)+1)/(nSim+1),
       crit_col = quantile(fval_col,probs=1-alpha)
     ))
   }
@@ -722,9 +722,9 @@ tusell.test2 <- function (Y, alpha = 0.05, Nsim = 1000, save_F=FALSE){
   
   if(Nsim>0){
     if(save_F){
-      out <- list(result = (prod(vl.cisla[1:p]) < critical.value), stat = prod(vl.cisla[1:p]), critical.value = critical.value,pvalue=sum(boot.value<(prod(vl.cisla[1:p])))/(Nsim+1), alpha = alpha, name = "Tusell test",F_Stat=boot.value)
+      out <- list(result = (prod(vl.cisla[1:p]) < critical.value), stat = prod(vl.cisla[1:p]), critical.value = critical.value,pvalue=(sum(boot.value<(prod(vl.cisla[1:p])))+1)/(Nsim+1), alpha = alpha, name = "Tusell test",F_Stat=boot.value)
     }else{
-      out <- list(result = (prod(vl.cisla[1:p]) < critical.value), stat = prod(vl.cisla[1:p]), critical.value = critical.value,pvalue=sum(boot.value<(prod(vl.cisla[1:p])))/(Nsim+1), alpha = alpha, name = "Tusell test")
+      out <- list(result = (prod(vl.cisla[1:p]) < critical.value), stat = prod(vl.cisla[1:p]), critical.value = critical.value,pvalue=(sum(boot.value<(prod(vl.cisla[1:p])))+1)/(Nsim+1), alpha = alpha, name = "Tusell test")
     }
   }else{
     out <- list(result = NULL, stat = prod(vl.cisla[1:p]), critical.value = NULL,pvalue=NULL, alpha = alpha, name = "Tusell test")
@@ -760,9 +760,9 @@ lbi.test2 <- function (Y, alpha = 0.05, Nsim = 1000, save_F=FALSE)
   
   if(Nsim>0){
     if(save_F){
-      out <- list(result = sum(vl.cisla^2) > critical.value, stat = sum(vl.cisla^2), critical.value = critical.value, pvalue=sum(boot.value>sum(vl.cisla^2))/(Nsim+1), alpha = alpha, name = "Locally Best Invariant test", F_Stat=boot.value)
+      out <- list(result = sum(vl.cisla^2) > critical.value, stat = sum(vl.cisla^2), critical.value = critical.value, pvalue=(sum(boot.value>sum(vl.cisla^2))+1)/(Nsim+1), alpha = alpha, name = "Locally Best Invariant test", F_Stat=boot.value)
     }else{
-      out <- list(result = sum(vl.cisla^2) > critical.value, stat = sum(vl.cisla^2), critical.value = critical.value, pvalue=sum(boot.value>sum(vl.cisla^2))/(Nsim+1), alpha = alpha, name = "Locally Best Invariant test")
+      out <- list(result = sum(vl.cisla^2) > critical.value, stat = sum(vl.cisla^2), critical.value = critical.value, pvalue=(sum(boot.value>sum(vl.cisla^2))+1)/(Nsim+1), alpha = alpha, name = "Locally Best Invariant test")
     }
   }else{
     out <- list(result = NULL, stat = sum(vl.cisla^2), critical.value = NULL, pvalue=NULL, alpha = alpha, name = "Locally Best Invariant test")
@@ -798,9 +798,9 @@ johnson.graybill.test2 <- function (Y, alpha = 0.05, Nsim = 1000, save_F=TRUE)
   
   if(Nsim>0){
     if(save_F){
-      out <- list(result = vl.cisla[1] > critical.value, stat = vl.cisla[1], critical.value = critical.value, pvalue= sum(boot.value>vl.cisla[1])/(Nsim+1), alpha = alpha, name = "Johnson and Graybill test", F_Stat=boot.value)
+      out <- list(result = vl.cisla[1] > critical.value, stat = vl.cisla[1], critical.value = critical.value, pvalue= (sum(boot.value>vl.cisla[1])+1)/(Nsim+1), alpha = alpha, name = "Johnson and Graybill test", F_Stat=boot.value)
     }else{
-      out <- list(result = vl.cisla[1] > critical.value, stat = vl.cisla[1], critical.value = critical.value, pvalue= sum(boot.value>vl.cisla[1])/(Nsim+1), alpha = alpha, name = "Johnson and Graybill test")
+      out <- list(result = vl.cisla[1] > critical.value, stat = vl.cisla[1], critical.value = critical.value, pvalue= (sum(boot.value>vl.cisla[1])+1)/(Nsim+1), alpha = alpha, name = "Johnson and Graybill test")
     }
   }else{
     out <- list(result = NULL, stat = vl.cisla[1], critical.value =NULL, pvalue= NULL, alpha = alpha, name = "Johnson and Graybill test")
@@ -896,9 +896,9 @@ SemiPar <- function(nSim=1000,type=c("Perm","Boot"),StatVal,mu,res_mat,alpha_mat
   
   # Return pval and critval at 5%
   if(method=="Tusell"){
-    SemiPar_out <- c(quantile(StatBoot,alpha),(sum(StatBoot<StatVal))/(nSim+1))
+    SemiPar_out <- c(quantile(StatBoot,alpha),(sum(StatBoot<StatVal)+1)/(nSim+1))
   }else{
-    SemiPar_out <- c(quantile(StatBoot,1-alpha),(sum(StatBoot>StatVal))/(nSim+1))
+    SemiPar_out <- c(quantile(StatBoot,1-alpha),(sum(StatBoot>StatVal)+1)/(nSim+1))
   }
   names(SemiPar_out) <- c("CritVal","pVal")
   

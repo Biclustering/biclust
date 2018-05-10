@@ -18,7 +18,13 @@ yticks<-yseq[-length(yseq)]+yseq[2]/2
 midl<-((7*xseq[2])/45)
 outl<-(xseq[2]/30)
 
-if(is.na(which)) which<-1:ny
+if(length(which)==1){
+  if(is.na(which)){which <- 1:ny}
+}else{
+  if(any(is.na(which))){
+    which<-1:ny
+  }
+}
 
 plot.new()
 if(!mid)
@@ -94,7 +100,13 @@ yticks<-yseq[-length(yseq)]+yseq[2]/2
 midl<-((7*xseq[2])/45)
 outl<-(xseq[2]/30)
 
-if(is.na(which)) which<-1:ny
+if(length(which)==1){
+  if(is.na(which)){which <- 1:ny}
+}else{
+  if(any(is.na(which))){
+    which<-1:ny
+  }
+}
 
 plot.new()
 if(!mid)

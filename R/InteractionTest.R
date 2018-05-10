@@ -38,7 +38,8 @@
 #' #Apply default diagnosticTest
 #' out <- diagnosticTest(BCresult=res, data=test, save_F=TRUE, number=1,
 #'                       statistics=c("F","Tukey","ModTukey","Tusell","Mandel","LBI","JandG"),
-#'                       samplingtypes=c("Permutation","SemiparPerm","SemiparBoot","PermutationCor","SamplingCor","NormSim"))
+#'                       samplingtypes=c("Permutation","SemiparPerm","SemiparBoot",
+#'                       "PermutationCor","SamplingCor","NormSim"))
 #' 
 #' #Plot Distributions
 #' diagnosticPlot2(out,number=1)
@@ -173,7 +174,8 @@ diagnosticPlot2 <- function(diagnosticTest,number=1,StatVal=TRUE,binwidth=NULL){
 #' #Apply default diagnosticTest
 #' out <- diagnosticTest(BCresult=res, data=test, save_F=TRUE, number=1,
 #'                       statistics=c("F","Tukey","ModTukey","Tusell","Mandel","LBI","JandG"),
-#'                       samplingtypes=c("Permutation","SemiparPerm","SemiparBoot","PermutationCor","SamplingCor","NormSim"))
+#'                       samplingtypes=c("Permutation","SemiparPerm","SemiparBoot",
+#'                       "PermutationCor","SamplingCor","NormSim"))
 #' 
 #' out[[1]]$table
 #' 

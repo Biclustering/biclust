@@ -1,4 +1,4 @@
-useDynLib(biclust)
+useDynLib(biclust, .registration=TRUE)
 
 import(methods)
 

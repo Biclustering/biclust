@@ -22,6 +22,27 @@
 #' @author Ewoud De Troyer
 #' @examples 
 #' 
+#' \dontshow{
+#' test <- matrix(rnorm(5000),100,50)
+#' roweff <- sample(1:5,10,replace=TRUE)
+#' coleff <- sample(1:5,10,replace=TRUE)
+#' test[11:20,11:20] <- test[11:20,11:20] +
+#'   matrix(coleff,nrow=10,ncol=10,byrow=TRUE) +
+#'   matrix(roweff,nrow=10,ncol=10) +
+#'   roweff %*% t(coleff)
+#' 
+#' 
+#' #Apply Plaid Biclustering
+#' res <- biclust(test, method=BCPlaid())
+#' 
+#' #Apply default diagnosticTest
+#' out <- diagnosticTest(BCresult=res, data=test, save_F=TRUE, number=1,
+#'                       statistics=c("F","Tukey"),
+#'                       samplingtypes=c("Permutation","SemiparPerm"))
+#' diagnosticPlot2(out,number=1)
+#' }
+#' 
+#' \dontrun{
 #' #Random matrix with embedded bicluster (with multiplicative effect)
 #' test <- matrix(rnorm(5000),100,50)
 #' roweff <- sample(1:5,10,replace=TRUE)
@@ -43,6 +64,7 @@
 #' 
 #' #Plot Distributions
 #' diagnosticPlot2(out,number=1)
+#' }
 #' 
 #' @return Returns a \code{ggplot} object.
 diagnosticPlot2 <- function(diagnosticTest,number=1,StatVal=TRUE,binwidth=NULL){
@@ -157,7 +179,26 @@ diagnosticPlot2 <- function(diagnosticTest,number=1,StatVal=TRUE,binwidth=NULL){
 #' @export
 #' @author Ewoud De Troyer
 #' @examples 
+#' \dontshow{
+#' test <- matrix(rnorm(5000),100,50)
+#' roweff <- sample(1:5,10,replace=TRUE)
+#' coleff <- sample(1:5,10,replace=TRUE)
+#' test[11:20,11:20] <- test[11:20,11:20] +
+#'   matrix(coleff,nrow=10,ncol=10,byrow=TRUE) +
+#'   matrix(roweff,nrow=10,ncol=10) +
+#'   roweff %*% t(coleff)
 #' 
+#' 
+#' #Apply Plaid Biclustering
+#' res <- biclust(test, method=BCPlaid())
+#' 
+#' #Apply default diagnosticTest
+#' out <- diagnosticTest(BCresult=res, data=test, save_F=TRUE, number=1,
+#'                       statistics=c("F","Tukey"),
+#'                       samplingtypes=c("Permutation","SemiparPerm"))
+#' }
+#' 
+#' \dontrun{
 #' #Random matrix with embedded bicluster (with multiplicative effect)
 #' test <- matrix(rnorm(5000),100,50)
 #' roweff <- sample(1:5,10,replace=TRUE)
@@ -178,6 +219,7 @@ diagnosticPlot2 <- function(diagnosticTest,number=1,StatVal=TRUE,binwidth=NULL){
 #'                       "PermutationCor","SamplingCor","NormSim"))
 #' 
 #' out[[1]]$table
+#' }
 #' 
 #' @return Returns a list with \code{length(number)} elements. 
 #' Each element corresponds with the requested biclusters and is a list containing:

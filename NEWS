@@ -8,3 +8,11 @@ Fifth version released on CRAN: 0.9.1 (2009-12-04): First predict method called 
 Version 0.9.3 has a new developed ensemble method including all needed functions
 
 Version 0.9.4 welcomes Tatsiana as a new developer and has now her diagnostic functions included
+
+Version 1.9.0
+- Fix several small bugs including Plaid, Bimax, Tukey Interaction test,...
+- Fix NOTES/ERRORS for new CRAN release (namespace, examples,...)
+- Addition two new functions for interaction testing of biclusters (additive and multiplicative effects)
+  - diagnosticTest: New interaction tests and sampling schemes for significance
+  - diagnosticPlot2: Uses output of diagnosticTest for distribution plots
+- New author added: Ewoud De Troyer

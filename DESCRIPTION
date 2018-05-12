@@ -4,7 +4,7 @@ Date: 2018-05-12
 Author: Sebastian Kaiser, Rodrigo Santamaria, Tatsiana Khamiakova,
         Martin Sill, Roberto Theron, Luis Quintales, Friedrich
         Leisch and Ewoud De Troyer.
-Maintainer: Sebastian Kaiser <Sebastian.Kaiser@stat.uni-muenchen.de>, Ewoud De Troyer <ewoud.detroyer@uhasselt.be>
+Maintainer: Sebastian Kaiser <Sebastian.Kaiser@stat.uni-muenchen.de>
 Title: BiCluster Algorithms
 Depends: R (>= 2.10), MASS, grid, colorspace, lattice
 Imports: methods, flexclust, additivityTests, tidyr, ggplot2

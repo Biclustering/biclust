@@ -24,7 +24,7 @@
   \item{method}{Here BCPlaid, to perform Plaid algorithm}
   \item{cluster}{'r', 'c' or 'b', to cluster rows, columns or both (default 'b')}
   \item{fit.model}{Model (formula) to fit each layer. Usually, a linear model is used, that
-   stimates three parameters: m (constant for all elements in the bicluster),
+   estimates three parameters: m (constant for all elements in the bicluster),
    a(contant for all rows in the bicluster) and b (constant for all columns).
    Thus, default is: y ~ m + a + b.}
   \item{background}{If 'TRUE' the method will consider that a background layer

@@ -6,7 +6,7 @@
 \alias{signVariance}
 
 \title{Coherence measures}
-\description{ Different prelilminary measures of how much constant or
+\description{ Different preliminary measures of how much constant or
   (additive, multiplicative, sign) coherent a bicluster is, following
   Madeira and Oliveira classification of biclusters.
   }

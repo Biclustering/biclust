@@ -5,7 +5,7 @@
   Bootstrap Procedure for Bicluster Diagnostics
 }
 \description{
-Calculate the signifiance of the discovered patter in the data based on the bootstrapping procedure.
+Calculate the significance of the discovered patter in the data based on the bootstrapping procedure.
 }
 \usage{
 diagnoseColRow(x, bicResult, number, nResamplings, replace = TRUE)

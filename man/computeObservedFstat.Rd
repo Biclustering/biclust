@@ -24,7 +24,7 @@ Number of bicluster in the output for computing observed statistics
 }
 }
 \details{
-F-statistics are calculated from the two-way ANOVA mode with row anc column effect. The full model with interaction is undentifiable, thus, Tukey's test for non-additivity is used to detect an  interaction within a bicluster. 
+F-statistics are calculated from the two-way ANOVA mode with row anc column effect. The full model with interaction is unidentifiable, thus, Tukey's test for non-additivity is used to detect an  interaction within a bicluster. 
 p-values are obtained from assymptotic F distributions.
 }
 \value{

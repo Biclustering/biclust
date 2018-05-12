@@ -19,7 +19,7 @@
 
 \format{
   Data frame with information about the expression levels of 6221 genes over 80 conditions.
-  Missing values have been imputed unsin k-nearest neighbor averaging implemented in
+  Missing values have been imputed using k-nearest neighbor averaging implemented in
   impute.knn() from library 'impute' (using default k=10).
   Gene names follow ORF (Open Reading Format) notation.
   }

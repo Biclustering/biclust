@@ -6,7 +6,7 @@
 \title{Bubbleplot}
 \description{ Draws a bubble plot where each bicluster is represented as a circle
   (bubble). Color represents the bicluster set to which bicluster pertains (up to three
-    bicluster sets can be represented simultaneously). Brightness representes the bicluster homogeneity
+    bicluster sets can be represented simultaneously). Brightness represents the bicluster homogeneity
     (darker, less homogeneous).
     Size represents the size of the bicluster, as (number of genes)x(number of conditions).
     Location is a 2D-projection of gene and condition profiles.

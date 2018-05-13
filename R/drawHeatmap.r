@@ -28,7 +28,6 @@ drawHeatmap=function(x, bicResult=NULL, number=NA, local=TRUE, beamercolor=FALSE
     if(is.na(number) || number>bicResult@Number || number<=0)
 	    {
 	    stop("Error: the bicluster does not exist in the result set")
-	    break
 	    }
 		
 	bicRows = which(bicResult@RowxNumber[,number])

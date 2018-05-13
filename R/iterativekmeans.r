@@ -12,20 +12,15 @@ iterativeKmeans=function(x,minimum=2,maximum=10,choice=0.5)
   #Input checking
   if(minimum<2)
     {
-    print("Error: clustering must divide data in at least 2 clusters")
-    print("       (minimum must value at least 2)")
-    break
+    stop("Error: clustering must divide data in at least 2 clusters (minimum must value at least 2)")
     }
   if(maximum>=n)
     {
-    print("Error: clustering must divide data in as much as n-1 clusters")
-    print("       (maximum value at max is length(x)-1)")
-    break    
+    stop("Error: clustering must divide data in as much as n-1 clusters (maximum value at max is length(x)-1)")
     }
   if(maximum<minimum)
     {
-    print("Error: maximum value must be greater than minimum")
-    break
+    stop("Error: maximum value must be greater than minimum")
     }  
     
   numClusterings=maximum-minimum+1;

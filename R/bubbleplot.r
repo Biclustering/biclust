@@ -50,18 +50,15 @@ bubbleplot=function(x, bicResult1, bicResult2=NULL, bicResult3=NULL, projection=
   
   if(length(col1)!=length(row1))
     {
-    print("Error: rows and columns of biclusters from biclustering method 1 have different lengths")
-    break
+    stop("Error: rows and columns of biclusters from biclustering method 1 have different lengths")
     }
   if(length(col2)!=length(row2))
     {
-    print("Error: rows and columns of biclusters from biclustering method 2 have different lengths")
-    break
+    stop("Error: rows and columns of biclusters from biclustering method 2 have different lengths")
     }
   if(length(col3)!=length(row3))
     {
-    print("Error: rows and columns of biclusters from biclustering method 2 have different lengths")
-    break
+    stop("Error: rows and columns of biclusters from biclustering method 2 have different lengths")
     }
 
   n=dim(x)[1]

@@ -69,12 +69,20 @@ Sebastian Kaiser
  \code{\link{Biclust-class}}, \code{\link{plaid.grid}},  \code{\link{bimax.grid}}
 }
 \examples{
+\dontshow{
+data(BicatYeast)
+x <- binarize(BicatYeast)
+ensemble.bimax <- ensemble(x,bimax.grid(),rep=10,maxNum=2,thr=0.5, subs = c(0.8,0.8))
+ensemble.bimax
+}
+\dontrun{
 data(BicatYeast)
 ensemble.plaid <- ensemble(BicatYeast,plaid.grid()[1:5],rep=1,maxNum=2, thr=0.5, subs = c(1,1))
 ensemble.plaid
 x <- binarize(BicatYeast)
 ensemble.bimax <- ensemble(x,bimax.grid(),rep=10,maxNum=2,thr=0.5, subs = c(0.8,0.8))
 ensemble.bimax
+}
 }
 
 \keyword{ cluster }

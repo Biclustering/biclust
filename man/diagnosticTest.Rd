@@ -74,7 +74,7 @@ Available p-values/sampling types for each statistical method:
 \item \code{"LBI"}: \code{"SemiparPerm"}, \code{"SemiparBoot"} and \code{"NormSim"}.
 \item \code{"JandG"}: \code{"SemiparPerm"}, \code{"SemiparBoot"} and \code{"NormSim"}.
 } 
-More info on the sampling types can be found in the section below.
+More info on the sampling types can be found in the secion below.
 If available, the \code{"Theoretical"} will always be computed.
 By default when \code{sampling=TRUE}, a sampling method without replacement is chosen, namely \code{"Permutation"} and \code{"SemiparPerm"}.
 

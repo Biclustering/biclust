@@ -40,8 +40,8 @@ res <- biclust(test, method=BCPlaid())
 
 #Apply default diagnosticTest
 out <- diagnosticTest(BCresult=res, data=test, save_F=TRUE, number=1,
-                      statistics=c("F","Tukey"),
-                      samplingtypes=c("Permutation","SemiparPerm"))
+                      statistics=c("F"),
+                      samplingtypes=c("Permutation"))
 diagnosticPlot2(out,number=1)
 }
 

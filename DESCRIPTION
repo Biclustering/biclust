@@ -1,10 +1,10 @@
 Package: biclust
-Version: 2.0.0
-Date: 2018-05-18
+Version: 2.0.2
+Date: 2020-02-03
 Author: Sebastian Kaiser, Rodrigo Santamaria, Tatsiana Khamiakova,
         Martin Sill, Roberto Theron, Luis Quintales, Friedrich
         Leisch and Ewoud De Troyer.
-Maintainer: Sebastian Kaiser <Sebastian.Kaiser@stat.uni-muenchen.de>
+Maintainer: Sebastian Kaiser <dr.sebastian.kaiser@gmail.com>
 Title: BiCluster Algorithms
 Depends: R (>= 2.10), MASS, grid, colorspace, lattice
 Imports: methods, flexclust, additivityTests, tidyr, ggplot2
@@ -17,11 +17,5 @@ Description: The main function biclust() provides several algorithms to
         solutions.
 License: GPL-3
 LazyLoad: yes
-Repository: R-Forge
-Repository/R-Forge/Project: biclust
-Repository/R-Forge/Revision: 226
-Date/Publication: 2015-12-11 12:45:49
-NeedsCompilation: yes
-Repository/R-Forge/DateTimeStamp: 2015-12-11 12:45:49
-Packaged: 2015-12-11 13:05:32 UTC; rforge
-RoxygenNote: 6.0.1
+
+

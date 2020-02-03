@@ -6,18 +6,13 @@ Biclust R package
 Installation
 ------------
 
-#### Release (1.2.0)
+#### Release (2.0.2)
 
 ``` r
 install.packages("biclust")
 ```
 
-#### Development (2.0.0)
 
-``` r
-install.packages("devtools") # If not yet installed on your R Version
-devtools::install_github("Biclustering/biclust")
-```
 
 Description
 -----------

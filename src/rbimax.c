@@ -65,10 +65,11 @@ int   noColumns;
 int   minNoRows;
 int   minNoColumns;
 int   maxLevels;
-row_t  *rows;
-cs_t   *consideredColumns;
-cs_t   *mandatoryColumns;
-cs_t   columnIntersection;
+row_t  *rows = NULL;
+cs_t   *consideredColumns = NULL;
+cs_t   *mandatoryColumns = NULL;
+cs_t   columnIntersection = NULL;
+int i;
 
 static int  biclusterCounter = 0; // przemek
 
@@ -287,7 +288,7 @@ void  writeBicluster(int  firstRow, int  lastRow, cs_t  columnSet, int * x, int 
 
 void  conquer(int  firstRow, int  lastRow, int  level, int noMandatorySets, int * x, int * y, int * z,int * anzahl,int * er)
 {
-  int   overlapping;
+  int   overlapping = 0; // CRAN correction: was used unitialized
   int  splitRow, noSelectedRows;
   if(*er==1)
     return;  
@@ -398,13 +399,13 @@ void  bimax(int * datenmatrix, int * nr, int * nc,int * minnr, int * minnc, int 
   biclusterCounter = 0; // przemek
 
   noRows = *nr;
-    fflush(stdin);
+     //fflush(stdin);
     noColumns = *nc;
-    fflush(stdin);
+     //fflush(stdin);
     minNoRows = *minnr;
-    fflush(stdin);
+     //fflush(stdin);
     minNoColumns = *minnc;
-    fflush(stdin);
+     //fflush(stdin);
   
   if (minNoRows < 1L)
     minNoRows = 1L;
@@ -414,6 +415,23 @@ void  bimax(int * datenmatrix, int * nr, int * nc,int * minnr, int * minnc, int 
     readInDataMatrix(datenmatrix);
     conquer(0L, noRows - 1L, 0L, 0L,x,y,z,anzahl,er);
   }
+  // Major leaks plugged by CRAN
+  if(rows) {
+     for (i = 0; i < noRows; i++) free(rows[i].columnSet);
+     free(rows); 
+     rows = NULL;
+  }
+  if(consideredColumns) {
+     for (i = 0; i < maxLevels; i++) free(consideredColumns[i]);
+     free(consideredColumns);
+     consideredColumns = NULL;
+  }
+  if(mandatoryColumns) {
+     for (i = 0; i < maxLevels; i++) free(mandatoryColumns[i]);
+      free(mandatoryColumns);
+      mandatoryColumns = NULL;
+  }
+  if(columnIntersection) {free(columnIntersection); columnIntersection = NULL;}
 } /* bimax */
 
 

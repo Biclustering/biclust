@@ -17,5 +17,5 @@ Description: The main function biclust() provides several algorithms to
         solutions.
 License: GPL-3
 LazyLoad: yes
-
+NeedsCompilation: yes
 

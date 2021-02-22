@@ -3,7 +3,7 @@ Version: 2.0.2
 Date: 2020-02-03
 Author: Sebastian Kaiser, Rodrigo Santamaria, Tatsiana Khamiakova,
         Martin Sill, Roberto Theron, Luis Quintales, Friedrich
-        Leisch and Ewoud De Troyer.
+        Leisch, Ewoud De Troyer and Sami Leon.
 Maintainer: Sebastian Kaiser <dr.sebastian.kaiser@gmail.com>
 Title: BiCluster Algorithms
 Depends: R (>= 2.10), MASS, grid, colorspace, lattice

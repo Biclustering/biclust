@@ -26,3 +26,8 @@ Version 2.0.2
 - New contact email adress for maintainer (dr.sebastian.kaiser@gmail.com instead of sebastian.kaiser@stat.uni-muenchen.de)
 - Small work on Readme and Description
 
+Version 2.0.3
+- spectral.r and postprocessing.r modified. The functions now include a projection step, and the option to specify the number of clusters. 
+- Description of the BCSpectral function modified to match the changes described above.
+- Sami Leon added as a contributor.
+

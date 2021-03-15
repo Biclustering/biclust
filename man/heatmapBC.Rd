@@ -3,11 +3,11 @@
 
 \title{Overlapping Heatmap}
 
-\description{ Other than \code{\link{drawHeatmap}} this function plots all or a chosen number of bicluster in one plot even if they were overlapping.}
+\description{Other than \code{\link{drawHeatmap}} this function plots all or a chosen number of bicluster in one plot even if they were overlapping.}
 
 \usage{
-heatmapBC(x, bicResult, number = 0, local = FALSE, order = FALSE,
-          axes = FALSE, outside = FALSE, zlim = c(min(x), max(x)), ...)
+heatmapBC(x, bicResult, number = 0, local = TRUE, order = FALSE, 
+          outside = FALSE, ...)
 }
 
 \arguments{
@@ -16,12 +16,10 @@ heatmapBC(x, bicResult, number = 0, local = FALSE, order = FALSE,
   \item{number}{ Number of bicluster to be drawn from the result set
     'bicResult'. If the default 0 is chosen all bicluster of the
     bicResult are drawn.}
-  \item{local}{If TRUE, only rows and columns of the bicluster were drawn.}
-  \item{order}{If TRUE, rows and
-          columns are ordered by there values.}
-  \item{axes}{Argument passed to \code{image()}}
-  \item{outside}{Boxes were drawn for overlapping }
-  \item{zlim}{Argument passed to \code{image()}}
+  \item{local}{If \code{TRUE}, only rows and columns of the bicluster are drawn. This argument is only used if number is not set to 0.}
+  \item{order}{If \code{TRUE}, rows and
+          columns are ordered by their values.}
+  \item{outside}{If \code{TRUE}, Boxes are drawn for overlapping}
   \item{...}{Additional plot options}
   }
 \details{Overlap plotting only works for two neighbor bicluster defined

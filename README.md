@@ -6,7 +6,7 @@ Biclust R package
 Installation
 ------------
 
-#### Release (2.0.2)
+#### Release (2.0.3)
 
 ``` r
 install.packages("biclust")

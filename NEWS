@@ -30,4 +30,4 @@ Version 2.0.3
 - spectral.r and postprocessing.r modified. The functions now include a projection step, and the option to specify the number of clusters. 
 - Description of the BCSpectral function modified to match the changes described above.
 - Sami Leon added as a contributor.
-
+- Corrected matrix length error in ChiaKaruturi.Rd

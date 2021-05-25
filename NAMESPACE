@@ -70,7 +70,8 @@ export(	drawHeatmap,
        diagnoseColRow,
        diagnosticPlot,
        biclustbarchart,
-       heatmapBC
+       heatmapBC,
+       spectral
 	)
 
 export(diagnosticPlot2)
@@ -83,8 +84,7 @@ exportClasses(
 		BCCC,
 		BCXmotifs,
 		BCSpectral,
-		BCPlaid,
-		spectral
+		BCPlaid
 		)
 
 exportMethods(

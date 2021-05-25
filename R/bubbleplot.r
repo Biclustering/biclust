@@ -94,7 +94,7 @@ bubbleplot=function(x, bicResult1, bicResult2=NULL, bicResult3=NULL, projection=
     con1[i,]= array(0,m)
     gen1[i,][row1[[i]]]=1
     con1[i,][col1[[i]]]=1
-    ss1=c(ss1, withinVar(Atemp[row1[[i]],col1[[i]]], length(row1[[i]]), length(col1[[i]])))
+    ss1=c(ss1, withinVar(Atemp[row1[[i]],col1[[i]]]))
     if(projection=="mean")
       {
       smdGen1=c(smdGen1, ystep*(mean(row1[[i]])/n))
@@ -126,7 +126,7 @@ bubbleplot=function(x, bicResult1, bicResult2=NULL, bicResult3=NULL, projection=
       con2[i,]= array(0,m)
       gen2[i,][row2[[i]]]=1
       con2[i,][col2[[i]]]=1
-      ss2=c(ss2, withinVar(Atemp[row2[[i]],col2[[i]]], length(row2[[i]]), length(col2[[i]])))
+      ss2=c(ss2, withinVar(Atemp[row2[[i]],col2[[i]]]))
       if(projection=="mean")
         {
         smdGen2=c(smdGen2, ystep*(mean(row2[[i]])/n))
@@ -154,7 +154,7 @@ bubbleplot=function(x, bicResult1, bicResult2=NULL, bicResult3=NULL, projection=
       con3[i,]= array(0,m)
       gen3[i,][row3[[i]]]=1
       con3[i,][col3[[i]]]=1
-      ss3=c(ss3, withinVar(Atemp[row3[[i]],col3[[i]]], length(row3[[i]]), length(col3[[i]])))
+      ss3=c(ss3, withinVar(Atemp[row3[[i]],col3[[i]]]))
       if(projection=="mean")
         {
         smdGen3=c(smdGen3, ystep*(mean(row3[[i]])/n))
@@ -311,39 +311,3 @@ bubbleplot=function(x, bicResult1, bicResult2=NULL, bicResult3=NULL, projection=
   par(mai=oldmai,mar=oldmar)
   }
 
-
-
-# ------------------- WITHIN VAR -------------------------
-# Within Variation of a matrix, by rows.
-# Computes the row mean and then the euclidean distance of each row to the mean.
-# The lower this value is, the higher row homogeneity of the bicluster
-# returns: the mean of the distances
-withinVar=function(x,n,m)
-  {
-  within=0
-
-  if(n==1)#Just one row
-    {
-    within=0
-    }
-  else    
-    {
-    if(m==1)  #Just one column
-      {
-      centroid=mean(x)
-      distances=sqrt(sum((x-centroid)^2))
-      within=sum(distances)/n
-      }
-    else  #More than one row and column
-      {
-      centroid=apply(x,2,mean)
-      distances=sqrt(apply(t(centroid-t(x))^2,1,sum))
-      within=sum(distances)/n
-      }
-    }
-  within
-  }
-  
-  
-  
-#bubbleplot(test,erg2, showLabels=TRUE)

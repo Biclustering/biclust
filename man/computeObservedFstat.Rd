@@ -43,7 +43,7 @@ Tatsiana KHAMIAKOVA \email{tatsiana.khamiakova@uhasselt.be}
 
 \examples{
 #---simulate dataset with 1 bicluster ---#
-xmat<-matrix(rnorm(20*50,0,0.25),50,50) # background noise only 
+xmat<-matrix(rnorm(50*50,0,0.25),50,50) # background noise only 
 rowSize <- 20 #number of rows in a bicluster 
 colSize <- 10 #number of columns in a bicluster
 a1<-rnorm(rowSize,1,0.1) #sample row effect from N(0,0.1) #adding a coherent values bicluster:

@@ -32,6 +32,9 @@ iterativeKmeans=function(x,minimum=2,maximum=10,choice=0.5)
     k=k+1
     }
   diferencias=diff(ss)
+  
+  if(length(ss) < 2) {diferencias = ss}
+  
   md=mean(diferencias)
   optimo=1
   for(i in 1:length(diferencias))

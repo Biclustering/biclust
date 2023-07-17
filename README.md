@@ -3,6 +3,10 @@
 Biclust R package
 =================
 
+General
+------------
+This repository is archived since the development will be done in CRAN directly (https://cran.r-project.org/web/packages/biclust/index.html) . This is need due to a change in the lead maintainer which will be Friedrich Leisch from now on.
+
 Installation
 ------------
 

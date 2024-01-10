@@ -9,6 +9,8 @@ Title: BiCluster Algorithms
 Depends: R (>= 2.10), MASS, grid, colorspace, lattice
 Imports: methods, flexclust, additivityTests, tidyr, ggplot2
 Suggests: isa2
+URL: https://github.com/Biclustering/biclust
+BugReports: https://github.com/Biclustering/biclust/issues
 Description: The main function biclust() provides several algorithms to
         find biclusters in two-dimensional data: Cheng and Church (2000, ISBN:1-57735-115-0),
         spectral (2003) <doi:10.1101/gr.648603>, plaid model (2005) <doi:10.1016/j.csda.2004.02.003>, xmotifs (2003) <doi:10.1142/9789812776303_0008> and bimax (2006) <doi:10.1093/bioinformatics/btl060>. In addition, the
